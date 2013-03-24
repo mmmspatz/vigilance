@@ -5,29 +5,18 @@ import threading
 import os
 import requests
 from requests import ConnectionError
+from config import *
 
 
-image_url="/shot.jpg"
-video_url="/videofeed"
-
-lighton="/enabletorch"
-lightoff="/disabletorch"
-
-port=8080
-
-
-
-content_path = "ims/"
 
 username="ryanqputz"
 password="crvfty"
 
-updateInterval = 3
 
 def getIms():
     while True:
         print "\n\n\nrunning image loop", threading.current_thread()
-        conn = sqlite3.connect('vigilance.db')
+        conn = sqlite3.connect(dbname)
         r = conn.execute('SELECT * FROM devices').fetchmany()
         conn.close()
         print "Getting images from:"
@@ -65,7 +54,7 @@ def update(ip, devid):
     f.write(r.content)
     print "Wrote image to"
     f.close()
-    conn = sqlite3.connect('vigilance.db')
+    conn = sqlite3.connect(dbname)
     conn.execute("INSERT INTO files VALUES (?, ?, ?)", (devid, fname, dt))
     conn.commit();
 if __name__ == "__main__":
