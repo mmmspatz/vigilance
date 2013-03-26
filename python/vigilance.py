@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, url_for
+from flask import Flask, request, render_template, url_for, redirect
 import sqlite3
 import requests
 from requests import ConnectionError
@@ -25,7 +25,7 @@ def register():
 
 @app.route("/apk")
 def getapp():
-    return url_for('static', 'VigilanceRegistration.apk')
+    return redirect(url_for('static', filename='VigilanceRegistration.apk'))
 
 #Returns a json object of all device IDs and streams: {'dev1':'url1', 'dev2':'url2', ...} 
 @app.route("/streams")
