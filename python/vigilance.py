@@ -23,6 +23,10 @@ def register():
     conn.close()
     return "got registration"
 
+@app.route("/apk")
+def getapp():
+    return url_for('static', 'VigilanceRegistration.apk')
+
 #Returns a json object of all device IDs and streams: {'dev1':'url1', 'dev2':'url2', ...} 
 @app.route("/streams")
 def getstream():
