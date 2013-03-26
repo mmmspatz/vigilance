@@ -25,7 +25,7 @@ def register():
 
 @app.route("/apk")
 def getapp():
-    return redirect(url_for('static', filename='VigilanceRegistration.apk'))
+    return redirect(url_for('static', filename='ptzv.apk'))
 
 #Returns a json object of all device IDs and streams: {'dev1':'url1', 'dev2':'url2', ...} 
 @app.route("/streams")
