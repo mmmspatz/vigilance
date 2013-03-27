@@ -11,17 +11,35 @@ import json
 app = Flask(__name__)
 
 @app.route("/android", methods=['POST'])
-def register():
+def register_android():
     name = request.data
     ip = request.remote_addr
     print name, ip
     if name == "Invalid":
         return "invalid device name";
+    print dbname, "android"
     conn = sqlite3.connect(dbname)
-    conn.execute("INSERT OR REPLACE INTO devices VALUES (?, ?, time(\"now\"))", (ip, name.lower()))
+    conn.execute("INSERT OR REPLACE INTO devices VALUES (?, ?, time(\"now\"), \"android\")", (ip, name.lower()))
     conn.commit()
     conn.close()
     return "got registration"
+
+
+@app.route("/webcam", methods=['POST'])
+def register_webcam():
+    name = request.values.keys()[0]
+    print request.values.keys()[0]
+    ip = request.remote_addr
+    print name, ip
+    if name == "Invalid":
+        return "invalid device name";
+    print dbname, "webcam"
+    conn = sqlite3.connect(dbname)
+    conn.execute("INSERT OR REPLACE INTO devices VALUES (?, ?, time(\"now\"), \"webcam\")", (ip, name.lower()))
+    conn.commit()
+    conn.close()
+    return "got registration"
+
 
 @app.route("/apk")
 def getapp():
@@ -30,9 +48,10 @@ def getapp():
 #Returns a json object of all device IDs and streams: {'dev1':'url1', 'dev2':'url2', ...} 
 @app.route("/streams")
 def getstream():
+    print dbname
     conn = sqlite3.connect(dbname)
-    devs = conn.execute ("SELECT devid, ipaddr FROM devices").fetchall()
-    d = dict([(i[0], "http://" + i[1] + ":" + str(port) + video_url) for i in devs])
+    devs = conn.execute ("SELECT devid, ipaddr, endpoint FROM devices").fetchall()
+    d = dict([(i[0], "http://" + i[1] + ":" + str(port) + video_urls[i[2]]) for i in devs])
     conn.close()
     return json.dumps(d)
 
@@ -40,7 +59,7 @@ def getstream():
 def getnewims():
     conn = sqlite3.connect(dbname)
     devs = conn.execute ("SELECT devid, ipaddr FROM devices").fetchall()
-    d = dict([(i[0], "http://" + i[1] + ":" + str(port) + video_url) for i in devs])
+    d = dict([(i[0], "http://" + i[1] + ":" + str(port) + image_urls[i[2]]) for i in devs])
     conn.close()
     return json.dumps(d)    
 
