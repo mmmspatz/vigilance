@@ -1,6 +1,8 @@
 vigilance
 =========
 
+See http://webcam.mit.edu
+
 Connect Android webcams to a public server
 
 You'll need the app "IP Webcam". 
