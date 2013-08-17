@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+{% autoescape false %}
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="/static/howitworks.js"></script>
+  <script src="/static/press.js"></script>
+  <script src="/static/webcam.js"></script>
+  <link href="/static/webcam-style.css" rel="stylesheet" type="text/css">
+  <title>MIT PTZ Basha Lounge Webcam</title>
+</head>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40274842-1', 'mit.edu');
+  ga('send', 'pageview');
+
+</script>
+<div id="mainframe">
+
+  
+  <ul id="navbar">
+    <li id="recentims"><a href="/archive" title="Recent images">Archive</a></li>
+    <li id="favorites"><a href="/favorites" title="Our finest hours">Favorites</a></li>
+    <li id="putz"><a href="http://web.mit.edu/2ndwest/www" title="See what we're all about">PTZ (Our hall)</a></li>
+    <li id="howitworks"><a href="#" onclick="howitworks()" title="How does it work?">Technical Details</a></li>
+    <li id="press"><a href="#" onclick="press()" title="PTZ Webcam in the press (world famous!)">Press</a></li>
+  </ul>
+  <br>
+  <h1>MIT East Campus PTZ Basha Lounge Webcam</h1>
+  
+  <div id="infobox" class="text"></div>
+
+  <img id="stream" src="http://{{ ip|safe }}:8080/?action=stream"> 
+
+  <div id="controls">
+    <button class="pan" id="left" onclick="pan('{{ devid }}', -400)"> &lt; </span> 
+    <button class="tilt" id="up" onclick="tilt('{{ devid }}', -200)"> ^ </span> 
+    <button class="tilt" id="down" onclick="tilt('{{ devid }}', 200)"> v </span> 
+    <button class="pan" id="right" onclick="pan('{{ devid }}', 400)"> &gt; </span>
+  </div>
+  
+  <div id="explanation" class="text">		
+<p> Leave us a message: </p>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'webcammit'; // required: replace example with your forum shortname
+	var disqus_identifier = 'mitwebcam';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+    <p>Thank you for visiting the Basha Lounge Webcam, the greatest Live dorm webcam in the world, and possibly the one of the oldest webcams.  This dorm cam was (not so) recently featured in the May 99 issue of yahoo internet life.  Check it out! And also feel free to drop us a line to tell us what you think about our live dorm webcam here at MIT in Boston.</p>
+    
+    <p>This webcam is the oldest (as far as we can tell at least) still-operating webcam on the internet that features human subjects (not fish or coffeepots).</p>
+
+    <p>Check out our kitchen cam at <a href=http://www.collegecoedsgonewildinthekitchen.com>collegecoedsgonewildinthekitchen.com<a>!</p>
+
+    <p> Email the webmaster: <a href=\"mailto:ptz-web@mit.edu\">ptz-web@mit.edu</a> </p>
+
+    
+  </div>
+  
+
+
+
+
+<a href="http://www.wunderground.com/US/MA/Cambridge.html"><img
+ src="http://banners.wunderground.com/banner/infobox/US/MA/Cambridge.gif"
+ alt="Click for Cambridge, Massachusetts Forecast"></a><br>
+<br>
+
+<a target="_top" href="http://y.extreme-dm.com/s/?tag=benoc">
+<img name=im src="http://y0.extreme-dm.com/i/" height=17 border=0
+width=17 alt=""><br>Extreme-dm Site Stats</a><script language="javascript"><!--
+an=navigator.appName;d=document;function
+pr(){d.write("<img src=\"http://y1.extreme-dm.com",
+"/z/?tag=benoc&j=y&srw="+srw+"&srb="+srb+"&",
+"rs="+r+"&l="+escape(parent.document.referrer)+"\" height=1 ",
+"width=1>");}srb="na";srw="na";//-->
+</script>
+
+<script language="javascript1.2"><!--
+s=screen;srw=s.width;an!="Netscape"?
+srb=s.colorDepth:srb=s.pixelDepth;//-->
+</script><script language="javascript"><!--
+r=41;d.images?r=d.im.width:z=0;pr();//-->
+</script><noscript><img alt=""
+src="http://y1.extreme-dm.com/z/?tag=benoc&j=n"></noscript>
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript" language="javascript">
+var sc_project=2387413; 
+var sc_invisible=0; 
+var sc_partition=22; 
+var sc_security="575676e8"; 
+var sc_text=1; 
+</script>
+
+<br>
+Page views since 3/26/07:
+<script type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/frames.js"></script><noscript><a href="http://www.statcounter.com/" target="_blank"><img  src="http://c23.statcounter.com/counter.php?sc_project=2387413&java=0&security=575676e8&invisible=0" alt="best tracker" border="0"></a> </noscript>
+<!-- End of StatCounter Code --><br><a href="http://my.statcounter.com/project/standard/stats.php?project_id=2387413&guest=1">Statcounter Site Stats</a>
+<br><a href="http://www.mitwebcam.com/usage">Webalizer Site Stats</a>
+
+
+
+</div>
+
+</body>
+</html>
+{% endautoescape %}

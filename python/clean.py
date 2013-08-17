@@ -6,9 +6,12 @@ import datetime
 def clean_files():
     tm = datetime.datetime.now() - image_lifetime
     conn = sqlite3.connect(dbname)    
-    oldfiles = conn.execute('SELECT * FROM files WHERE filetime < ?', (tm,)).fetchmany()
+    oldfiles = conn.execute('SELECT * FROM files WHERE filetime < ?', (tm,)).fetchall()
     for (devid, fname, ftime) in oldfiles:
-        os.remove(fname)
+        try:
+            os.remove(fname)
+        except OSError:
+            pass
     conn.execute('DELETE FROM files WHERE filetime < ?', (tm,))
     conn.commit()
     conn.close()
