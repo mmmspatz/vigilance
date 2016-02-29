@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /archive
+Disallow: /android
+Disallow: /kitchencam
+Disallow: /webcam
+Disallow: /streams
+Disallow: /images
+Disallow: /devids
+Disallow: /pan
+Disallow: /tilt
+Disallow: /brightness
+Disallow: /wolo
+Disallow: /webcam
+Disallow: /kitchencam
+Disallow: /eric
